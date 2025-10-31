@@ -1,0 +1,66 @@
+{
+  "enabled": true,
+  "output_dir": "output_3dgs",
+  "pixel_scale": 0.0003,
+  "auto_train_threshold": 300,
+  "reconstruction": {
+    "iterations": 1000,
+    "position_lr_init": 0.001,
+    "position_lr_final": 0.0001,
+    "position_lr_delay_mult": 0.01,
+    "feature_lr": 0.01,
+    "opacity_lr": 0.05,
+    "scaling_lr": 0.005,
+    "rotation_lr": 0.001,
+    "lambda_dssim": 0.2,
+    "percent_dense": 0.01,
+    "sh_lr": 0.025,
+    "opacity_threshold": 0.005
+  },
+  "densification": {
+    "densify_from_iter_ratio": 0.25,
+    "densify_until_iter_ratio": 0.5,
+    "densify_grad_threshold": 0.0001,
+    "densification_interval_ratio": 0.05,
+    "opacity_reset_interval_ratio": 0.5,
+    "size_threshold": 20,
+    "densify_from_iter": 50,
+    "densify_until_iter": 600,
+    "densification_interval": 30,
+    "opacity_reset_interval": 150,
+    "prune_interval": 100,
+    "prune_threshold": 0.1
+  },
+  "exposure": {
+    "exposure_lr_init": 0.001,
+    "exposure_lr_final": 0.0001,
+    "exposure_lr_delay_steps": 5000,
+    "exposure_lr_delay_mult": 0.001
+  },
+  "virtual_cameras": {
+    "num_cameras": 3,
+    "radius_scale": 1.5,
+    "fov": 45,
+    "width": 200,
+    "height": 150,
+    "elevation_angle": 30
+  },
+  "realtime_reconstruction": {
+    "enabled": true,
+    "max_queue_size": 3,
+    "min_points": 5,
+    "density_enhancement": true,
+    "enhancement_factor": 10
+  },
+  "rendering": {
+    "bg_color": [
+      0,
+      0,
+      0
+    ],
+    "antialiasing": false,
+    "compute_cov3D_python": false,
+    "convert_SHs_python": false,
+    "debug": false
+  }
+}

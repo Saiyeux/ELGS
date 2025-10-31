@@ -1,0 +1,105 @@
+{
+  "enabled": true,
+  "weights_path": "thirdparty/EfficientLoFTR/weights/eloftr_outdoor.ckpt",
+  "model_type": "full",
+  "precision": "fp32",
+  "camera": {
+    "camera0_id": 0,
+    "camera1_id": 4,
+    "img_width": 1920,
+    "img_height": 1080,
+    "focal_length_scale": 1.0,
+    "use_auto_focal_length": true,
+    "manual_fx": 1920.0,
+    "manual_fy": 1920.0,
+    "manual_cx": 960.0,
+    "manual_cy": 540.0
+  },
+  "matching": {
+    "conf_thresh": 0.15,
+    "resize_factor": 1.0,
+    "max_matches": 4000,
+    "min_matches": 12,
+    "skip_frames": 0,
+    "max_keypoints": 4000,
+    "detection_threshold": 0.003
+  },
+  "loftr_model": {
+    "match_type": "dual_softmax",
+    "npe_config": [
+      832,
+      832,
+      832,
+      832
+    ],
+    "coarse_resolution": [
+      8,
+      2
+    ],
+    "fine_resolution": 2,
+    "temperature": 0.1,
+    "border_rm": 2,
+    "match_threshold": 0.2,
+    "skh_iters": 3,
+    "skh_init_bin_score": 1.0
+  },
+  "reconstruction": {
+    "ransac_method": "RANSAC",
+    "ransac_confidence": 0.999,
+    "ransac_threshold": 0.8,
+    "max_iterations": 3000,
+    "recover_pose_threshold": 50.0,
+    "min_triangulation_angle": 0.05,
+    "depth_threshold": 3.0,
+    "min_depth": 0.2,
+    "max_depth": 5.0,
+    "reprojection_threshold": 1.5,
+    "enable_statistical_filter": true,
+    "statistical_k": 30,
+    "statistical_std_ratio": 1.5,
+    "enable_radius_filter": true,
+    "radius_filter_radius": 0.05,
+    "radius_filter_min_neighbors": 8
+  },
+  "visualization": {
+    "show_matches": true,
+    "match_color": [
+      0,
+      255,
+      0
+    ],
+    "match_thickness": 2,
+    "confidence_color_map": true,
+    "min_conf_color": [
+      0,
+      0,
+      255
+    ],
+    "max_conf_color": [
+      0,
+      255,
+      0
+    ]
+  },
+  "performance": {
+    "use_cuda": true,
+    "batch_size": 1,
+    "num_workers": 0,
+    "device_id": 0,
+    "memory_efficient": true,
+    "prefetch_factor": 2
+  },
+  "filtering": {
+    "enable_stable_filter": true,
+    "filter_before_3d": true,
+    "min_filter_ratio": 0.5,
+    "max_filter_ratio": 0.95
+  },
+  "coordinate_system": {
+    "max_baseline_samples": 15,
+    "baseline_stability_thresh": 0.05,
+    "position_update_rate": 0.8,
+    "rotation_update_rate": 0.8,
+    "drift_detection_thresh": 3.0
+  }
+}
